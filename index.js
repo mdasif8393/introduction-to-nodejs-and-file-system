@@ -1,23 +1,16 @@
-const {add} = require('./other');
+const events = require('events');
+const eventEmitter = new events.EventEmitter();
 
-//core modules
-const http = require('http');
+//creating an event handler
 
-//third party module --> underscore
-const _= require('underscore')
+const chitkarDibo = () => {
+    console.log('oi beta koi tui?? ami darai asi!!');
+}
 
-const server = http.createServer(function(req, res){
+// assign the handler into an event
 
-//   console.log("Server is running")
+eventEmitter.on('scream',chitkarDibo).chitkarDibo
 
-});
+//firing the event
 
-server.listen(5000); 
-
-// const result = add(12,12);
-// console.log(result);
-//ss
-var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
-
-const res = _.pluck(stooges, 'age');
-console.log(res);
+eventEmitter.emit('scream')
